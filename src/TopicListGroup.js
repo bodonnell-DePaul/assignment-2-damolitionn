@@ -1,6 +1,7 @@
 import { ListGroup, Col, Row, Tab } from 'react-bootstrap';
 import { useState } from 'react';
 import todos from './todoItems';
+import './TopicListGroup.css';
 
 function TopicListGroup() {
     const [todoItems, setTodoItems] = useState(todos);
@@ -20,23 +21,23 @@ function TopicListGroup() {
     return (
         <Tab.Container id="ListGroupWithTabs" defaultActiveKey="0">
         <Row>
-            <Col sm={3}>
+            <Col sm={4}>
             <ListGroup>
                 {todos.map((todo, index) => (
-                <ListGroup.Item action href={`#${index}`} key={index} variant = {GetListColour(todo.dueDate)}>
+                <ListGroup.Item className = 'todo-item' action href={`#${index}`} key={index} variant = {GetListColour(todo.dueDate)} >
                     {todo.title}
                 </ListGroup.Item>
                 ))}
             </ListGroup>
             </Col>
-            <Col sm={9}>
+            <Col sm={8}>
             <Tab.Content>
                 {todos.map((todo, index) => (
                 <Tab.Pane key={index} eventKey={`#${index}`}>
                     <div contentEditable suppressContentEditableWarning onBlur={(e) => ChangedDescription(index, e.target.innerText)}>
                         {todo.description}
                     </div>
-                    <input type="date" value={todo.dueDate} onChange={(e) => ChangedDate(index, e.target.value)}/>
+                    <input className = 'date-item' type="date" value={todo.dueDate} onChange={(e) => ChangedDate(index, e.target.value)} />
                 </Tab.Pane>
                 ))}
             </Tab.Content>

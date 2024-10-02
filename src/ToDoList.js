@@ -15,8 +15,8 @@ function ToDoList() {
         </Col>
       </Row>
       <Row className = 'form-list-row'>
-        <Col> <ToDoForm/> </Col>
-        <Col> <TopicListGroup/> </Col>
+        <Col sm = {4}> <ToDoForm/> </Col>
+        <Col sm = {8}> <TopicListGroup/> </Col>
       </Row>
     </Container>
   );
