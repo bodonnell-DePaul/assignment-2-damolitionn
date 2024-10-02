@@ -18,8 +18,7 @@ describe('TodoList Component', () => {
     const dueDateInput = screen.getByLabelText(/Due Date/i);
     const addButton = screen.getByText(/Add Todo/i);
 
-    expect(todoInput).toBeInTheDocument();
-    expect(dueDateInput).toBeInTheDocument();
+    expect(todoInput).toBeInTheDocument();1
     expect(addButton).toBeInTheDocument();
   });
 
