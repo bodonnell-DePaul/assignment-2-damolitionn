@@ -8,7 +8,7 @@ function TopicListGroup() {
         <Col sm={3}>
           <ListGroup>
             {todos.map((todo, index) => (
-              <ListGroup.Item action href={`#${index}`} key={index}>
+              <ListGroup.Item action href={`#${index}`} key={index} variant = {GetListColour(todo.dueDate)}>
                 {todo.title}
               </ListGroup.Item>
             ))}
@@ -27,6 +27,19 @@ function TopicListGroup() {
       </Row>
     </Tab.Container>
   );
+}
+
+function GetListColour(dueDate) {
+    const currentDate = new Date();
+    const due = new Date(dueDate);
+    const currentUTC = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const dueUTC = Date.UTC(due.getFullYear(), due.getMonth(), due.getDate());
+    const diff = Math.floor((dueUTC - currentUTC) / (1000 * 60 * 60 * 24));
+
+    if (diff > 7) { return 'primary'; }
+    else if (diff >= 4) {return 'success'; }
+    else if (diff >= 2) {return 'warning'; }
+    else { return 'danger'; }
 }
 
 export default TopicListGroup;
