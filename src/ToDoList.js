@@ -4,15 +4,18 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TopicListGroup from './TopicListGroup';
+import ToDoForm from './ToDoForm';
 
 function ToDoList() {
   return (
     <Container>
-      <Row>
-        <Col><h1>Assignment 2: Damien's ToDo List</h1></Col>
+      <Row className = 'header-row'>
+        <Col>
+          <h1 className = 'header-text'>Assignment 2: Damien's ToDo List</h1>
+        </Col>
       </Row>
-      <Row>
-        <Col> </Col>
+      <Row className = 'form-list-row'>
+        <Col> <ToDoForm/> </Col>
         <Col> <TopicListGroup/> </Col>
       </Row>
     </Container>

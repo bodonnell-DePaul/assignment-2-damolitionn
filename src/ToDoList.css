@@ -1,0 +1,15 @@
+.header-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .header-text {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .form-list-row {
+    padding-top: 30px;
+  }
