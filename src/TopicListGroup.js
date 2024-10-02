@@ -30,11 +30,9 @@ function TopicListGroup() {
 }
 
 function GetListColour(dueDate) {
-    const currentDate = new Date();
+    const current = new Date();
     const due = new Date(dueDate);
-    const currentUTC = Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-    const dueUTC = Date.UTC(due.getFullYear(), due.getMonth(), due.getDate());
-    const diff = Math.floor((dueUTC - currentUTC) / (1000 * 60 * 60 * 24));
+    const diff = Math.floor((due - current) / (1000 * 60 * 60 * 24));
 
     if (diff > 7) { return 'primary'; }
     else if (diff >= 4) {return 'success'; }
