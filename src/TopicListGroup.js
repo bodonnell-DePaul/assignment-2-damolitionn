@@ -1,3 +1,4 @@
+/*Name: Damien Yap*/
 import { ListGroup, Col, Row, Tab } from 'react-bootstrap';
 import { useState } from 'react';
 import todos from './todoItems';
@@ -55,7 +56,7 @@ function GetListColour(dueDate) {
   
     if (dayDiff > 7) { return 'primary'; }
     else if (dayDiff <= 7 && dayDiff > 4) { return 'success'; }
-    else if (dayDiff <= 4 && dayDiff > 2) { return 'warning'; }
+    else if (dayDiff <= 4 && dayDiff >= 2) { return 'warning'; }
     else if (dayDiff < 2) { return 'danger' };
 }
 
