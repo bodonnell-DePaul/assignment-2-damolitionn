@@ -19,12 +19,12 @@ function TopicListGroup() {
     };
 
     return (
-        <Tab.Container id="ListGroupWithTabs" defaultActiveKey="0">
+        <Tab.Container id="list-group-tab" defaultActiveKey="0">
         <Row>
             <Col sm={4}>
             <ListGroup>
                 {todos.map((todo, index) => (
-                <ListGroup.Item className = 'todo-item' action href={`#${index}`} key={index} variant = {GetListColour(todo.dueDate)} >
+                <ListGroup.Item className = 'list-group-item' action href={`#${index}`} key={index} variant = {GetListColour(todo.dueDate)} >
                     {todo.title}
                 </ListGroup.Item>
                 ))}
@@ -50,12 +50,13 @@ function TopicListGroup() {
 function GetListColour(dueDate) {
     const current = new Date();
     const due = new Date(dueDate);
-    const diff = Math.floor((due - current) / (1000 * 60 * 60 * 24));
-
-    if (diff > 7) { return 'primary'; }
-    else if (diff >= 4) {return 'success'; }
-    else if (diff >= 2) {return 'warning'; }
-    else { return 'danger'; }
+    const timeDiff = Math.abs(due - current);
+    const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  
+    if (dayDiff > 7) { return 'primary'; }
+    else if (dayDiff <= 7 && dayDiff > 4) { return 'success'; }
+    else if (dayDiff <= 4 && dayDiff > 2) { return 'warning'; }
+    else if (dayDiff < 2) { return 'danger' };
 }
 
 export default TopicListGroup;
